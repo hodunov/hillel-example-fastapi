@@ -1,0 +1,9 @@
+{% extends 'index.html' %} 
+{% block body %}
+<h1>Requirements.txt contents</h1>
+<ul class="list-group">
+    {% for package in text %}
+        <li class="list-group-item">{{ package }}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

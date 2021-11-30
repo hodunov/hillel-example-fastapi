@@ -1,0 +1,48 @@
+{% extends 'index.html' %} 
+{% block body %}
+<h1>People Are In Space Right Now</h1>
+<div class="container-space">
+  {% if astronauts %}
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Craft</th>
+        <th scope="col">Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in astronauts %}
+      <tr>
+        <th scope="row">{{loop.index}}</th>
+        <td>{{item.craft}}</td>
+        <td>{{item.name}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+<p style="text-align: center">
+  <img
+    src="https://media.giphy.com/media/KEG5UtvXUD7WPIhhuy/giphy.gif"
+    alt="Astronaut"
+  />
+</p>
+{% else %}
+<div class="ml-4 mr-4 alert alert-danger" role="alert">
+    <h4 class="alert-heading">Oops! Something went wrong!</h4>
+    <p>
+        It looks like we didn't get a response during the third-party service request and can't provide you access to the list of astronauts in orbit.</p>
+    <hr>
+    <p class="mb-0">Try to come back later.</p>
+  </div>
+  <p style="text-align: center">
+    <img
+      src="https://c8.alamy.com/comp/2BCYD12/sad-astronaut-is-sitting-by-grave-spaceman-and-headstone-2BCYD12.jpg"
+      alt="Astronaut"
+      height="300px"
+
+    />
+  </p>
+{% endif %}
+{% endblock %}

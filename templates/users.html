@@ -1,0 +1,38 @@
+{% extends 'index.html' %} 
+{% block body %}
+<div class="d-flex justify-content-start">
+<div class="ml-4 mr-4">
+    <h2>Randomly Generated Users</h2>
+</div>
+<div class="ml-4 dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Change the amount
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="?user_count=10">10</a>
+        <a class="dropdown-item" href="?user_count=25">25</a>
+        <a class="dropdown-item" href="?user_count=50">50</a>
+    </div>
+</div>
+</div>
+<div class="container-users">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in user_data %}
+        <tr>
+            <th scope="row">{{loop.index}}</th>
+            <td>{{user.first_name}}</td>
+            <td>{{user.email}}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
